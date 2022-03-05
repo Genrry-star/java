@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mrpeng.eduserver.mapper.EduCourseMapper">
+    <select id="getCourseDetails" resultType="com.mrpeng.vo.CourseDetailsVo">
+        select
+            c.id,
+            c.title,
+            c.cover,
+            c.lesson_num as lessonNum,
+            c.price,
+            one.title as subjectLevelOne,
+            two.title as subjectLevelTwo,
+            t.name as teacherName
+        from edu_course c
+        left join edu_teacher t  on t.id=c.teacher_id
+        left join edu_subject one on c.subject_parent_id=one.id
+        left join edu_subject two on c.subject_id =two.id
+        where c.id=#{id}
+    </select>
+    <select id="getCourseInfo" resultType="com.mrpeng.vo.CourseInfoVo">
+        select c.id id,c.title title,c.cover cover,c.lesson_num lessonNum,c.price price,c.buy_count buyCount,c.view_count viewCount,
+        t.id teacherId,t.name teacherName,t.intro intro,t.avatar avatar,
+        ecd.description description,one.id subjectLevelOneId,one.title subjectLevelOne,two.id subjectLevelTwoId,two.title subjectLevelTwo
+        from edu_course c
+        left join edu_teacher t on c.teacher_id=t.id
+        left join edu_course_description ecd on c.id=ecd.id
+        left join edu_subject one on c.subject_parent_id =one.id
+        left join edu_subject two on c.subject_id=two.id where c.id=#{courseId}
+    </select>
+</mapper>

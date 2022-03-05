@@ -1,0 +1,18 @@
+server:
+  port: 7002
+spring:
+  application:
+    name: oss-server
+  servlet:
+    multipart:
+      max-file-size: 100MB
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+aliyun:
+  oss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    bucketName: peng-edu
+    accessKeyId: LTAI4GA8rN2XZhq9SejWUVBk
+    accessKeySecret: 5H9g1JhQA15Jv51FGYlQDtJ6HyCBnw

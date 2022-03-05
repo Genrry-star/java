@@ -1,0 +1,54 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      routes:
+        - id: edu-server
+          order: 0
+          uri: http://127.0.0.1:7001
+          predicates:
+            - Path=/eduserver/**
+        - id: oss-server
+          order: 0
+          uri: http://localhost:7002
+          predicates:
+            - Path=/oss/**
+        - id: video-server
+          order: 0
+          uri: http://localhost:7004
+          predicates:
+            - Path=/video/**
+        - id: banner-server
+          order: 0
+          uri: lb://banner-server
+          predicates:
+            - Path=/banner/**
+        - id: message-server
+          order: 0
+          uri: lb://message-server
+          predicates:
+            - Path=/message/**
+        - id: member-server
+          order: 0
+          uri: lb://member-server
+          predicates:
+            - Path=/memberserver/**,/api/**
+        - id: order-server
+          order: 0
+          uri: lb://order-server
+          predicates:
+            - Path=/orderserver/**,/pay/**
+        - id: acl-server
+          order: 0
+          uri: lb://acl-server
+          predicates:
+            - Path=/admin/acl/**
+    inetutils:
+      timeout-seconds: 2
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+

@@ -1,0 +1,19 @@
+server:
+  port: 7004
+
+spring:
+  application:
+    name: video-server
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1024MB
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+aliyun:
+  oss:
+    accessKeyId: LTAI4GA8rN2XZhq9SejWUVBk
+    accessKeySecret: 5H9g1JhQA15Jv51FGYlQDtJ6HyCBnw

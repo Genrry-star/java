@@ -1,0 +1,36 @@
+server:
+  port: 8150
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/online_edu?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  application:
+    name: member-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+  #使用redis作为缓存
+  redis:
+    port: 6379
+    host: 192.168.92.11
+logging:
+  level:
+    com.mrpeng: debug
+#微信相关配置
+wx:
+  open:
+    # 微信开放平台 appid
+
+    appid: wxed9954c01bb89b47
+
+    # 微信开放平台 appsecret
+    appsecret: a7482517235173ddb4083788de60b90e
+    # 微信开放平台 重定向url（guli.shop需要在微信开放平台配置）
+    redirecturi: http://guli.shop/api/ucenter/wx/callback
+
+mybatis-plus:
+  mapper-locations: classpath*:/com/mrpeng/memberserver/mapper/xml/*.xml

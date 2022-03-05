@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="oss-server" />
+        <module name="edu-server" />
+        <module name="common-server" />
+        <module name="member-server" />
+        <module name="acl-server" />
+        <module name="security-server" />
+        <module name="message-server" />
+        <module name="order-server" />
+        <module name="banner-server" />
+        <module name="gateway-server" />
+        <module name="video-server" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="acl-server" options="-parameters" />
+      <module name="banner-server" options="-parameters" />
+      <module name="common-server" options="-parameters" />
+      <module name="edu-server" options="-parameters" />
+      <module name="gateway-server" options="-parameters" />
+      <module name="member-server" options="-parameters" />
+      <module name="message-server" options="-parameters" />
+      <module name="order-server" options="-parameters" />
+      <module name="oss-server" options="-parameters" />
+      <module name="security-server" options="-parameters" />
+      <module name="servers" options="-parameters" />
+      <module name="video-server" options="-parameters" />
+    </option>
+  </component>
+</project>

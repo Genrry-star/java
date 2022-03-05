@@ -1,0 +1,19 @@
+server:
+  port: 7003
+
+spring:
+  application:
+    name: banner-server
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/online_edu?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  redis:
+    port: 6379
+    host: 192.168.92.11
+
+logging:
+  level:
+    com.mrpeng.bannerserver.mapper: debug
